@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 
-export const Logo = ({ classes, height }) => {
+export const Logo = ({ classes }) => {
   return (
     <svg
       className={classes}
       xmlns="http://www.w3.org/2000/svg"
-      width="183"
-      height={height}
+      width="55"
+      height="55"
       viewBox="0 0 183 151"
       fill="none"
     >
@@ -65,5 +65,4 @@ export const Logo = ({ classes, height }) => {
 
 Logo.propTypes = {
   classes: PropTypes.string,
-  height: PropTypes.string,
 };
