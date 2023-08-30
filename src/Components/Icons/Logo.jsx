@@ -1,9 +1,12 @@
-export const Logo = () => {
+import PropTypes from "prop-types";
+
+export const Logo = ({ classes, height }) => {
   return (
-<svg
+    <svg
+      className={classes}
       xmlns="http://www.w3.org/2000/svg"
       width="183"
-      height="151"
+      height={height}
       viewBox="0 0 183 151"
       fill="none"
     >
@@ -58,4 +61,9 @@ export const Logo = () => {
       </defs>
     </svg>
   );
+};
+
+Logo.propTypes = {
+  classes: PropTypes.string,
+  height: PropTypes.string,
 };
