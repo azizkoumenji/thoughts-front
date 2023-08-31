@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import Landing from "./Components/Landing/Landing";
+import Landing from "./components/landing/landing";
 
 function App() {
   let [mode, setMode] = useState("light");

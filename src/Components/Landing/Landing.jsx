@@ -1,4 +1,4 @@
-import { Logo } from "../Icons/Logo";
+import { Logo } from "../icons/logo";
 import { Button } from "@nextui-org/react";
 
 const Landing = () => {
