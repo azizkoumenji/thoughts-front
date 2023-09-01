@@ -1,35 +1,33 @@
-import {
-  Avatar,
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Input,
-} from "@nextui-org/react";
+import { Avatar, Button, Input } from "@nextui-org/react";
 import { Logo } from "../icons/Logo";
 import { Link } from "react-router-dom";
 
 export const NewUser = () => {
   return (
     <div className="flex flex-col min-h-screen">
-      <Logo classes={"ml-10 mt-5 mb-5 basis-1/6"} />
-      <div className="flex flex-col items-center h-full basis-5/6">
-        <Card className="w-[60%] px-7 m-5">
-          <CardHeader className="font-bold text-2xl mt-3">
-            <p className="text-center w-full">Create your account</p>
-          </CardHeader>
-          <CardBody className="gap-5">
+      <Logo classes={"ml-10 mt-10 mb-5 basis-1/6"} />
+      <div className="flex flex-col items-center min-h-full basis-5/6 max-sm:mx-5 sm:mx-5 content-center">
+        <Avatar showFallback radius="md" size="lg" className="sm:hidden mt-5" />
+        <div className="lg:w-[60%] md:w-[70%] max-sm:w-full sm:w-full max-sm:px-0 px-7 m-5">
+          <div className="font-bold text-3xl mt-3">
+            <p className="text-center w-full mb-10">Create your account</p>
+          </div>
+          <div className="flex flex-col gap-5">
             <div className="flex gap-5">
-              <Avatar showFallback radius="md" size="lg" />
-              <Input type="name" label="Name" />
+              <Avatar
+                showFallback
+                radius="md"
+                size="lg"
+                className="max-sm:hidden shrink-0"
+              />
+              <Input type="name" label="Name" color="default" />
             </div>
             <Input type="username" label="Username" />
             <Input type="email" label="Email" />
             <Input type="date" />
             <Input type="password" label="Password" />
-          </CardBody>
-          <CardFooter className="flex gap-3">
+          </div>
+          <div className="flex gap-3 mt-5">
             <Button color="primary" className="font-semibold basis-1/2">
               Sign up
             </Button>
@@ -45,8 +43,8 @@ export const NewUser = () => {
                 <p>Cancel</p>
               </Link>
             </Button>
-          </CardFooter>
-        </Card>
+          </div>
+        </div>
       </div>
     </div>
   );

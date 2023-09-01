@@ -4,10 +4,10 @@ import { Button } from "@nextui-org/react";
 
 const Landing = () => {
   return (
-    <div className="flex min-h-screen lg:items-center max-lg:mx-14 max-lg:flex-col">
+    <div className="flex min-h-screen lg:items-center max-lg:mx-10 max-lg:flex-col">
       <Logo
         classes={
-          "lg:basis-1/2 my-5 mt-10 max-lg:basis-1/6 max-lg:h-52 max-lg:mb-14 lg:h-80"
+          "lg:basis-1/2 mt-10 max-lg:basis-1/6 max-lg:h-52 max-lg:mb-14 lg:h-80"
         }
       />
       <div className="flex flex-col lg:basis-1/2 items-start max-lg:basis-5/6">
