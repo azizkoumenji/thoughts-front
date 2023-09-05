@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import "./App.css";
 import Landing from "./components/landing/Landing";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { NewUser } from "./components/landing/NewUser";
-import SlideRoutes from "react-slide-routes";
+import Home from "./components/home/Home";
 
 function App() {
   let [mode, setMode] = useState("dark");
@@ -31,10 +30,12 @@ function App() {
   return (
     <main className={classes}>
       <Router>
-        <SlideRoutes>
+        <Routes>
+          <Route path="/home" element={<Home />} />
           <Route path="/" element={<Landing />} />
           <Route path="/newuser" element={<NewUser />} />
-        </SlideRoutes>
+          <Route path="/home" element={<Home />} />
+        </Routes>
       </Router>
     </main>
   );
