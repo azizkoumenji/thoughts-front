@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../reducers/usersReducer";
+import { logUser } from "../../reducers/loggedUserReducer";
 
 export const NewUser = () => {
   const [name, setName] = useState("");
@@ -18,6 +19,7 @@ export const NewUser = () => {
     event.preventDefault();
     const newUser = { name, username, password, email, date };
     dispatch(addUser(newUser));
+    dispatch(logUser({ username, password }));
     navigate("/home");
   };
 
@@ -40,7 +42,7 @@ export const NewUser = () => {
                   className="max-sm:hidden shrink-0"
                 />
                 <Input
-                  type="name"
+                  type="text"
                   label="Name"
                   color="default"
                   onChange={(event) => setName(event.target.value)}
@@ -48,7 +50,7 @@ export const NewUser = () => {
                 />
               </div>
               <Input
-                type="username"
+                type="text"
                 label="Username"
                 onChange={(event) => setUsername(event.target.value)}
                 isRequired

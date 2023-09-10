@@ -3,9 +3,12 @@ import Landing from "./components/landing/Landing";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { NewUser } from "./components/landing/NewUser";
 import Home from "./components/home/Home";
+import { userAreadyLoggedCheck } from "./reducers/loggedUserReducer";
+import { useDispatch } from "react-redux";
 
 function App() {
   let [mode, setMode] = useState("dark");
+  const dispatch = useDispatch();
 
   useEffect(() => {
     window.matchMedia("(prefers-color-scheme: dark)").matches
@@ -19,6 +22,10 @@ function App() {
         setMode(colorScheme);
       });
   }, []);
+
+  useEffect(() => {
+    dispatch(userAreadyLoggedCheck());
+  }, [dispatch]);
 
   let classes = "";
   if (mode === "dark") {
