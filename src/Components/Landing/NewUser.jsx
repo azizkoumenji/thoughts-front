@@ -15,10 +15,10 @@ export const NewUser = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const newUser = { name, username, password, email, date };
-    dispatch(addUser(newUser));
+    await dispatch(addUser(newUser));
     dispatch(logUser({ username, password }));
     navigate("/home");
   };

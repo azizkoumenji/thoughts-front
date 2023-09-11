@@ -41,12 +41,16 @@ const Login = ({ visibility, setVisibility }) => {
                 onChange={(event) => setPassword(event.target.value)}
               ></Input>
               <div className="flex gap-5">
-                <Button color="primary" type="submit" className="basis-1/2">
+                <Button
+                  color="primary"
+                  type="submit"
+                  className="basis-1/2 font-semibold"
+                >
                   Sign in
                 </Button>
                 <Button
                   color="danger"
-                  className="basis-1/2"
+                  className="basis-1/2 font-semibold"
                   onClick={() => setVisibility(false)}
                 >
                   Cancel

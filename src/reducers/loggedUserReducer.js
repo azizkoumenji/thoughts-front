@@ -6,7 +6,6 @@ const userSlice = createSlice({
   initialState: null,
   reducers: {
     setUser(state, action) {
-      console.log(action.payload, "setUser");
       return action.payload;
     },
     delUser() {
@@ -18,10 +17,11 @@ const userSlice = createSlice({
 export const { setUser, delUser } = userSlice.actions;
 
 export const logUser = (user) => {
-  return async () => {
+  return async (dispatch) => {
     try {
       const returnResult = await loginService.login(user);
       window.localStorage.setItem("loggedUser", JSON.stringify(returnResult));
+      dispatch(setUser(JSON.stringify(returnResult)));
     } catch {
       console.log("Add error notification!");
     }
@@ -33,7 +33,6 @@ export const userAreadyLoggedCheck = () => {
     const loggedUserJSON = window.localStorage.getItem("loggedUser");
     if (loggedUserJSON) {
       const userLogged = JSON.parse(loggedUserJSON);
-      console.log("/////////////////////");
       dispatch(setUser(userLogged));
     }
   };

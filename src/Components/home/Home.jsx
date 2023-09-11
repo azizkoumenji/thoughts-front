@@ -1,17 +1,36 @@
+import { Button } from "@nextui-org/react";
+import { useDispatch, useSelector } from "react-redux";
+import { outUser } from "../../reducers/loggedUserReducer";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   console.log(user, "Home");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(outUser());
+    navigate("/");
+  };
+
   useEffect(() => {
     if (!user) {
-      navigate("/");
+      setTimeout(1000, () => {
+        navigate("/");
+      });
     }
-  });
-  return <p>Home</p>;
+  }, [user, navigate]);
+
+  return (
+    <div>
+      <p>Home</p>
+      <Button color="danger" variant="ghost" onClick={handleLogout}>
+        Log out
+      </Button>
+    </div>
+  );
 };
 
 export default Home;
